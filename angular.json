@@ -113,6 +113,74 @@
           }
         }
       }
+    },
+    "lib-a": {
+      "root": "libs/lib-a",
+      "sourceRoot": "libs/lib-a/src",
+      "projectType": "library",
+      "prefix": "poc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/lib-a/tsconfig.lib.json",
+            "project": "libs/lib-a/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/lib-a/tsconfig.lib.json",
+              "libs/lib-a/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/lib-a/jest.config.js",
+            "tsConfig": "libs/lib-a/tsconfig.spec.json",
+            "setupFile": "libs/lib-a/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "lib-b": {
+      "root": "libs/lib-b",
+      "sourceRoot": "libs/lib-b/src",
+      "projectType": "library",
+      "prefix": "poc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/lib-b/tsconfig.lib.json",
+            "project": "libs/lib-b/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/lib-b/tsconfig.lib.json",
+              "libs/lib-b/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/lib-b/jest.config.js",
+            "tsConfig": "libs/lib-b/tsconfig.spec.json",
+            "setupFile": "libs/lib-b/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {
